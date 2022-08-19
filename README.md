@@ -1,71 +1,27 @@
-# Getting Started with Create React App
+# ㊙️ Vanilla Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### <span style="color:#63a6ff">Data를 관리하는걸 도와주는 역할을 하는 우리의 리덕스</span>
 
-## Available Scripts
+## 01. 스토어와 리듀서
 
-In the project directory, you can run:
+> - Store : 데이터(state)를 저장하는곳!
+> - Reducer : **[데이터를 수정하는] 함수!** 중요! 스토어를 만들면 리듀서도 만들어야한다!
+> - State : 변경이 필요한 Data
 
-### `yarn start`
+```jsx
+// 리듀서나 모디파이어는 처음으로 데이터를 바꿔준당!
+// state initializing
+const reducer = (state = 0) => {
+  return 'hello'; // 👈 application data가 된다
+};
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+const Store = createStore(reducer);
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+∴ 뭐든지 *modifier/reducer*가 `return` 하는것은 **application에 있는 data다**!!!!!!
 
-### `yarn test`
+### 액션(Action)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> redux에서 function을 부를때 쓰는 두번쨰 파라미터/아규먼트
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Redex
+`store.dispatch({key:value})` : countModifier **(리듀서)** 에게 **(action)** 을 보내는 방법 | <key:value> => action countStore.dispatch({ type: 'ADD' });
